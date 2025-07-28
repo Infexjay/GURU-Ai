@@ -7,7 +7,6 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
-
 dotenv.config()
 
 let pairingCode = null
@@ -112,8 +111,8 @@ function startBot() {
   }
 
   const currentFilePath = new URL(import.meta.url).pathname
-  const args = [path.join(path.dirname(currentFilePath), 'Guru.js'), ...process.argv.slice(2)]
-  
+  const args = [path.join(__dirname, 'Guru.js'), ...process.argv.slice(2)]
+
   const env = {
     ...process.env,
     MONGODB_URI: mongodbUri,
